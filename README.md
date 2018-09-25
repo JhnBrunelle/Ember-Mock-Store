@@ -1,7 +1,9 @@
-ember-mock-store
+Ember Mock Store
 ==============================================================================
 
-[Short description of the addon.]
+Provides helper to emulate the store for client side testing.
+
+This is useful for testing components that make use of EmberData, without altering other data
 
 Installation
 ------------------------------------------------------------------------------
@@ -14,7 +16,21 @@ ember install ember-mock-store
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+From your test:
+
+```javascript
+import MockStore from './tests/helpers/mock-store';
+
+moduleForComponent('Component', {
+    beforeEach() {
+
+        // Stub the actual Ember Store, with the fake Store
+        this.set('store', MockStore.create());
+
+    }
+});
+```
+Ember Data can now be used normally
 
 
 Contributing
